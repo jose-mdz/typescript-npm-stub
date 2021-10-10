@@ -11,8 +11,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.main = void 0;
 const App_1 = require("./App");
-exports.main = () => __awaiter(void 0, void 0, void 0, function* () {
-    return App_1.App.initialize()
-        .catch(e => console.error("Failed to initialize", e));
-});
+const layer_logging_1 = require("layer-logging");
+const logger = new layer_logging_1.Logger('main-index');
+function main() {
+    return __awaiter(this, void 0, void 0, function* () {
+        return App_1.App.initialize()
+            .then(app => app.run())
+            .catch(e => logger.error(`App failed: ${e}`));
+    });
+}
+exports.main = main;
 //# sourceMappingURL=index.js.map

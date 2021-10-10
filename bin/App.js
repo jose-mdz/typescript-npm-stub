@@ -10,8 +10,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.App = void 0;
-const Logger_1 = require("./util/Logger");
-const logger = new Logger_1.Logger('App');
+const layer_logging_1 = require("layer-logging");
+const logger = new layer_logging_1.Logger('App');
 class App {
     constructor() {
         this.config = null;
