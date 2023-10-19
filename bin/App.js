@@ -9,46 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.App = void 0;
+exports.run = void 0;
 const layer_logging_1 = require("layer-logging");
 const logger = new layer_logging_1.Logger('App');
-class App {
-    constructor() {
-        this.config = null;
-    }
-    static get instance() { return App._instance; }
-    static initialize() {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (App.instance) {
-                throw `Already Initialized`;
-            }
-            logger.info("Initializing");
-            const app = new App();
-            logger.info(`Loading config`);
-            yield app.initializeConfig();
-            App._instance = app;
-            return app;
-        });
-    }
-    initializeConfig() {
-        return __awaiter(this, void 0, void 0, function* () {
-            this.config = yield App.configProvider();
-        });
-    }
-    run() {
-        logger.info("Running!");
-    }
-    terminate() {
-        return __awaiter(this, void 0, void 0, function* () {
-            App._instance = null;
-        });
-    }
-}
-exports.App = App;
-App._instance = null;
-App.configProvider = () => __awaiter(void 0, void 0, void 0, function* () {
-    return ({
-        port: 9090
+function run(config) {
+    return __awaiter(this, void 0, void 0, function* () {
+        logger.debug('Hello');
     });
-});
+}
+exports.run = run;
 //# sourceMappingURL=App.js.map

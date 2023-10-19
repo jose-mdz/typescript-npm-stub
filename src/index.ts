@@ -1,12 +1,16 @@
-import {App} from "./App";
+import {LifeCycle} from "./LifeCycle";
 import {Logger} from "layer-logging";
 
 const logger = new Logger('main-index');
 
 export async function main() {
 
-    return App.initialize()
+    return LifeCycle.initialize()
         .then(app => app.run())
-        .catch(e => logger.error(`App failed: ${e}`));
+        .finally(() => LifeCycle.app.terminate())
+        .catch(e => {
+            logger.error(`App failed: ${e}`);
+            process.exit(1);
+        });
 
 }
