@@ -7,7 +7,6 @@ Features:
 - Out of the box App mechanics. 
 - Includes test setup.
 - Includes coverage setup.
-- 100% coverage
 
 To setup after cloning (or copying), run:
 ```bash

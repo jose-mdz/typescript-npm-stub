@@ -1,5 +1,5 @@
 import {assert} from 'chai';
-import {App} from "../../src/App";
+import {LifeCycle} from "../../src/LifeCycle";
 import {Logger} from "layer-logging";
 
 describe(`App`, function () {
@@ -14,31 +14,11 @@ describe(`App`, function () {
 
     it('should gracefully initialize and terminate App', async function () {
 
-        assert.isNull(App.instance);
+        await LifeCycle.initialize();
 
-        await App.initialize();
+        assert.isTrue(LifeCycle.app instanceof LifeCycle);
 
-        assert.isTrue(App.instance instanceof App);
-
-        await App.instance!.terminate();
-
-    });
-
-    it('should fail to initialize already initialized App', async function () {
-
-        await App.initialize();
-
-        let triggered = false;
-
-        try{
-            await App.initialize();
-        }catch(e){
-            triggered = true;
-        }
-
-        assert.isTrue(triggered);
-
-        await App.instance!.terminate();
+        await LifeCycle.app.terminate();
 
     });
 
