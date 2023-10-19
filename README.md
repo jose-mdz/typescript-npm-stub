@@ -31,11 +31,3 @@ npm test
 ```bash
 npm run coverage
 ```
-
-## Mark Idea IDE folders:
-Recommendation of (Right Click > Mark directory as > ...)
-
-- `bin`: Excluded
-- `res`: Resources Root
-- `src`: Sources Root
-- `test`: Test Sources Root
