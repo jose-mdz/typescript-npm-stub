@@ -4,4 +4,3 @@ exports.DefaultConfig = void 0;
 exports.DefaultConfig = {
     port: 9090
 };
-//# sourceMappingURL=Config.js.map

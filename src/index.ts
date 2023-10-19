@@ -12,5 +12,6 @@ export async function main() {
             logger.error(`App failed: ${e}`);
             process.exit(1);
         });
-
 }
+
+main();
